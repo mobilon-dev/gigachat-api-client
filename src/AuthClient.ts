@@ -6,7 +6,7 @@ const btoa = (str: string) => {
   return Buffer.from(str).toString('base64');
 }
 
-export interface IOptions {
+export interface IAuthClientOptions {
   debug: boolean;
   url: string;
   logger: any;
@@ -19,7 +19,7 @@ export class AuthClient{
   client_id: string;
   client_secret: string;
 
-  constructor(client_id: string, client_secret: string, options: IOptions){
+  constructor(client_id: string, client_secret: string, options: IAuthClientOptions){
     this.client_id = client_id;
     this.client_secret = client_secret;
 
