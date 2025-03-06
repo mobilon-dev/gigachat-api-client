@@ -1,0 +1,26 @@
+{
+  "name": "gigachat-api-client",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc && npm run docs:build",
+    "lint-fix": "eslint --fix . --ext .ts",
+    "docs:build": "npx typedoc",
+    "docs:view": "http-server ./docs/"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@microsoft/fetch-event-source": "^2.0.1",
+    "axios": "^1.8.1",
+    "axios-logger": "^2.8.1",
+    "qs": "^6.14.0",
+    "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.9",
+    "typescript": "^5.8.2"
+  }
+}
