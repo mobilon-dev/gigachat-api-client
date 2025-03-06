@@ -1,7 +1,7 @@
 # gigachat-api-client
 
-
 docs: https://mobilon-dev.github.io/gigachat-api-client/
+
 see ./samples
 
 
@@ -30,3 +30,7 @@ const data = await apiClient.sendRequest(model, messages);
 
 
 `````
+
+youtube: https://youtu.be/fhl_RT-Eg4w
+
+gigachat api explorer: https://mobilon-dev.github.io/gigachat-api-explorer/
