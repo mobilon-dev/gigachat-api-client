@@ -20,6 +20,7 @@ export class ApiClient{
       headers: {
         'Accept': 'application/json', 
         Authorization: `Bearer ${this.token}`,
+        'Content-Type': 'application/json'
       },
     });
 
