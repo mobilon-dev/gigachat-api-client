@@ -5,6 +5,7 @@ import { requestLogger, responseLogger } from 'axios-logger';
 export interface IApiClientOptions {
   debug: boolean;
   url: string;
+  timeout: number;
 }
 
 const API_URL = 'https://gigachat.devices.sberbank.ru';
@@ -22,6 +23,7 @@ export class ApiClient{
         Authorization: `Bearer ${this.token}`,
         'Content-Type': 'application/json'
       },
+      timeout: options.timeout || 20 * 1000,
     });
 
     if (options.debug) {
