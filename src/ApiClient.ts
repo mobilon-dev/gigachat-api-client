@@ -5,8 +5,8 @@ import * as FormData from 'form-data';
 
 export interface IApiClientOptions {
   debug: boolean;
-  url: string;
-  timeout: number;
+  url?: string;
+  timeout?: number;
 }
 
 const API_URL = 'https://gigachat.devices.sberbank.ru';
@@ -67,7 +67,6 @@ export class ApiClient{
       formData.append('file', file, filename || 'file.txt');
     }
     formData.append('purpose','general');
-    console.log(formData);
     const response = await this.axios.post(`/api/v1/files`, formData, {
       headers: {
         ...formData.getHeaders(),

@@ -10,8 +10,16 @@
     "resolveJsonModule": true,
     "outDir": "dist",
     "types": [
-      "node"
+      "node",
+      "jest"
     ],
     "lib": ["ES2015"]
-  }
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "__tests__",
+    "**/*.test.ts",
+    "**/*.spec.ts"
+  ]
 }

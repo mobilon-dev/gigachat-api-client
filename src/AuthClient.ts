@@ -8,8 +8,8 @@ const btoa = (str: string) => {
 
 export interface IAuthClientOptions {
   debug: boolean;
-  url: string;
-  logger: any;
+  url?: string;
+  logger?: any;
 }
 
 const AUTH_URL = 'https://ngw.devices.sberbank.ru:9443';
