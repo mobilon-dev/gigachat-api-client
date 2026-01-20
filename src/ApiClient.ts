@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { requestLogger, responseLogger } from 'axios-logger';
+import * as FormData from 'form-data';
 // import { fetchEventSource } from '@microsoft/fetch-event-source';
 
 export interface IApiClientOptions {
@@ -54,12 +55,24 @@ export class ApiClient{
     return response.data;
   }
 
-  async uploadFile(file: File){
+  async uploadFile(file: File | Buffer | any, filename?: string){
     const formData = new FormData();
-    formData.append('file', file)
-    formData.append('purpose','general')
-    console.log(formData)
-    const response = await this.axios.post(`/api/v1/files`,formData);
+    // В Node.js используем Buffer или Stream, в браузере - File
+    if (file instanceof Buffer) {
+      formData.append('file', file, filename || 'file.txt');
+    } else if (file && typeof file === 'object' && 'name' in file) {
+      // File объект (браузер или Node.js 18+)
+      formData.append('file', file, file.name || filename || 'file.txt');
+    } else {
+      formData.append('file', file, filename || 'file.txt');
+    }
+    formData.append('purpose','general');
+    console.log(formData);
+    const response = await this.axios.post(`/api/v1/files`, formData, {
+      headers: {
+        ...formData.getHeaders(),
+      },
+    });
     return response.data;
   }
 
